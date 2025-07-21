@@ -1,3 +1,5 @@
+![Demo](assets/demo.gif)
+
 # 3DSlicer AI Automation
 
 ## Overview
@@ -50,12 +52,12 @@ python main.py
 At the prompt, type natural language commands. Some examples:
 
 - `Give me available actions`
-- `Set view to axial`
-- `Scroll slice up`
 - `Open Slicer`
-- `Close Slicer without saving`
+- `Scroll slice up`
+- `Set view to axial`
 - `Set view to coronal`
 - `Set view to 4-up overview`
+- `Close Slicer without saving`
 
 Type `exit` or `quit` to stop the agent.
 
