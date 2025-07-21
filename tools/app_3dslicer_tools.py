@@ -44,13 +44,14 @@ def close_slicer(save: bool = True) -> str:
     client = SlicerClient()
     if save:
         slicer_code = '''
-slicer.util.saveScene()
-slicer.app.quit()
+scenePath = slicer.mrmlScene.GetURL()
+slicer.util.saveScene(scenePath)
+slicer.app.exit()
 print("Slicer project saved and application closed.")
 '''
     else:
         slicer_code = '''
-slicer.app.quit()
+slicer.app.exit()
 print("Slicer application closed without saving.")
 '''
     return safe_result(client.send_code(slicer_code))
