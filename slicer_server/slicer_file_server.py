@@ -10,9 +10,24 @@ JSON_FILE = os.path.join(PROJECT_DIR, "slicer_server", "slicer_command_result.js
 print("Slicer file-watcher started (polling, JSON). Waiting for commands...")
 print(f"[Slicer] Watching file: {JSON_FILE}")
 
+# --- Add this block to handle Slicer closing ---
+should_exit = False
+try:
+    import slicer
+    def on_slicer_quit():
+        global should_exit
+        print("[Slicer] Slicer is quitting. Exiting server script...")
+        should_exit = True
+    slicer.app.connect('aboutToQuit()', on_slicer_quit)
+except Exception as e:
+    print(f"[Slicer] Could not connect to aboutToQuit: {e}")
+# --- End block ---
+
 last_processed_timestamp = None
 
 while True:
+    if should_exit:
+        break
     if os.path.exists(JSON_FILE):
         try:
             with open(JSON_FILE, "r", encoding="utf-8") as f:
