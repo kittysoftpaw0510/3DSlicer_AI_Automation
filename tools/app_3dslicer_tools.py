@@ -5,7 +5,8 @@ import os
 import signal
 
 SLICER_EXE_PATH = r"C:/Users/Riddle/AppData/Local/slicer.org/Slicer 5.8.1/Slicer.exe"  # Update this path as needed
-SLICER_SERVER_SCRIPT = r"E:/Upwork/3DSlicer_AI_Automation/slicer_server/slicer_file_server.py"  # Update as needed
+PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+JSON_FILE = os.path.join(PROJECT_DIR, "slicer_server", "slicer_file_server.py")
 
 slicer_process = None
 
