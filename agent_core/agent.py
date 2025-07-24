@@ -54,7 +54,7 @@ class AI_Agent:
                     "Always explain your reasoning and results clearly. "
                     "If you use a tool, summarize the outcome for the user. "
                     "If you need more information, ask clarifying questions. "
-                    "Be concise, helpful, and context-aware."
+                    "Be concise, helpful, and context-aware. But clear and short."
                 )
             }
         ]
